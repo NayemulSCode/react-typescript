@@ -1,9 +1,13 @@
 // types/extensions.ts
 
 // Extending React Router types
-import { RouteObject } from 'react-router-dom';
+// import { RouteObject } from "react-router-dom";
 
-interface EnhancedRouteObject extends RouteObject {
+// Example: Enhanced route type for React Router
+// If you want to use this, ensure RouteObject is a valid object type to extend
+export type EnhancedRouteObject = {
+  path?: string;
+  element?: React.ReactNode;
   meta?: {
     title: string;
     description?: string;
@@ -13,61 +17,57 @@ interface EnhancedRouteObject extends RouteObject {
     icon?: string;
   };
   children?: EnhancedRouteObject[];
-}
+};
 
 // Extending React types
-declare module 'react' {
-  interface HTMLAttributes<T> {
+declare module "react" {
+  interface HTMLAttributes<T = unknown> {
     // Add custom data attributes
-    'data-analytics-id'?: string;
-    'data-tour-step'?: string;
+    "data-analytics-id"?: string;
+    "data-tour-step"?: string;
   }
 
   interface CSSProperties {
     // Add CSS custom properties support
-    '--primary-color'?: string;
-    '--border-radius'?: string;
+    "--primary-color"?: string;
+    "--border-radius"?: string;
   }
 }
 
 // Extending third-party UI library (example: Tailwind UI or similar)
-declare module '@headlessui/react' {
-  interface DialogProps {
-    analyticsId?: string;
-    tourStep?: string;
-  }
-}
+// Remove invalid module augmentation for @headlessui/react
+// If you need to extend DialogProps, do it in your own component props
 
 // Extending global Window object
 declare global {
   interface Window {
     gtag?: (
-      command: 'config' | 'event',
+      command: "config" | "event",
       targetId: string,
-      config?: any
+      config?: Record<string, unknown>
     ) => void;
     analytics?: {
-      track: (event: string, properties?: Record<string, any>) => void;
-      identify: (userId: string, traits?: Record<string, any>) => void;
+      track: (event: string, properties?: Record<string, unknown>) => void;
+      identify: (userId: string, traits?: Record<string, unknown>) => void;
     };
   }
 }
 
 // Extending Vite's ImportMeta for environment variables
-declare module 'vite/client' {
-  interface ImportMetaEnv {
-    readonly VITE_API_BASE_URL: string;
-    readonly VITE_APP_TITLE: string;
-    readonly VITE_ANALYTICS_ID: string;
-    readonly VITE_FEATURE_FLAGS: string;
-  }
+// Remove invalid module augmentation for vite/client
+// If you need to type ImportMetaEnv, use ambient declaration:
+export interface ImportMetaEnv {
+  readonly VITE_API_BASE_URL: string;
+  readonly VITE_APP_TITLE: string;
+  readonly VITE_ANALYTICS_ID: string;
+  readonly VITE_FEATURE_FLAGS: string;
 }
 
 // Create enhanced fetch with better typing
-interface ApiResponse<T = any> {
+export interface ApiResponse<T = unknown> {
   data: T;
   message: string;
-  status: 'success' | 'error';
+  status: "success" | "error";
   meta?: {
     page?: number;
     limit?: number;
@@ -75,14 +75,14 @@ interface ApiResponse<T = any> {
   };
 }
 
-interface ApiError {
+export interface ApiError {
   message: string;
   code: string;
-  details?: Record<string, any>;
+  details?: Record<string, unknown>;
 }
 
 // Enhanced fetch function with better error handling
-type EnhancedFetch = <T = any>(
+export type EnhancedFetch = <T = unknown>(
   input: RequestInfo | URL,
   init?: RequestInit & {
     timeout?: number;

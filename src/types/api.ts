@@ -1,25 +1,25 @@
 // types/api.ts
 type LoadingState = {
-  status: 'loading';
+  status: "loading";
   message: string;
 };
 
 type SuccessState = {
-  status: 'success';
+  status: "success";
   data: User[];
   timestamp: Date;
 };
 
 type ErrorState = {
-  status: 'error';
+  status: "error";
   error: string;
   code: number;
 };
 
-type ApiState = LoadingState | SuccessState | ErrorState;
+export type ApiState = LoadingState | SuccessState | ErrorState;
 
 // User type for our example
-type User = {
+export type User = {
   id: string;
   name: string;
   email: string;

@@ -1,14 +1,9 @@
-import { useState, useEffect } from "react";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-} from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Button } from "./components/atoms/Button";
-import UserList from "./components/UserList";
-import UserForm from "./components/UserForm";
 import Layout from "./components/Layout";
+import UserForm from "./components/UserForm";
+import UserList from "./components/UserList";
 import { ApiState, User } from "./types/api";
 import { EnhancedRouteObject } from "./types/extensions";
 import { UserFormData } from "./types/form";

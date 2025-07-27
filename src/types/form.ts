@@ -21,11 +21,16 @@ interface UserProfile {
 }
 
 // Utility type examples
-type UserFormData = Omit<UserProfile, 'id' | 'createdAt' | 'updatedAt'>; // For creating new users
-type UserUpdateData = Partial<Pick<UserProfile, 'firstName' | 'lastName' | 'phone' | 'preferences'>>; // For updates
-type ContactInfo = Pick<UserProfile, 'email' | 'phone' | 'address'>; // For contact display
-type UserSettings = Pick<UserProfile, 'preferences'>; // For settings page
+export type UserFormData = Omit<UserProfile, "id" | "createdAt" | "updatedAt">; // For creating new users
+export type UserUpdateData = Partial<
+  Pick<UserProfile, "firstName" | "lastName" | "phone" | "preferences">
+>; // For updates
+export type ContactInfo = Pick<UserProfile, "email" | "phone" | "address">; // For contact display
+export type UserSettings = Pick<UserProfile, "preferences">; // For settings page
 
 // Record type for form validation
-type ValidationErrors = Record<keyof UserFormData, string | undefined>;
-type FormFieldStatus = Record<keyof UserFormData, 'idle' | 'validating' | 'error' | 'success'>;
+export type ValidationErrors = Record<keyof UserFormData, string | undefined>;
+export type FormFieldStatus = Record<
+  keyof UserFormData,
+  "idle" | "validating" | "error" | "success"
+>;
