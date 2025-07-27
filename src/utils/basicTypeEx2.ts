@@ -1,3 +1,10 @@
+// Basic syntax
+const variableName: type = value;
+
+// Type inference - TypeScript can often infer types
+const inferredString = "Hello"; // TypeScript knows this is a string
+const explicitString: string = "World"; // Explicitly declared string
+
 // Primitive Types
 const name: string = "আহমেদ";
 const age: number = 25;

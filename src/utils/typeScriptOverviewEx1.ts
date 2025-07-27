@@ -1,13 +1,22 @@
+// TypeScript মূলত JavaScript-এর ওপর ভিত্তি করে বানানো একটি প্রোগ্রামিং ভাষা, যেখানে JavaScript-এর সব বৈশিষ্ট্য থাকে,
+//  তবে অতিরিক্ত কিছু ফিচার যোগ করা হয়, যেমন static typing, interfaces, enums, ইত্যাদি।
+
+// "Superset" মানে হলো:
+
+// TypeScript == JavaScript + Extra Features
+
+// তাই, সব JavaScript কোড TypeScript-এ বৈধ, কিন্তু সব TypeScript কোড JavaScript-এ বৈধ না (কারণ JavaScript-এ টাইপিং নেই)।
+
 // "এই bugs গুলো runtime এ গিয়ে ধরা পড়লো। কিন্তু আমরা কি development time এই এগুলো ধরতে পারি না?"
 
 // উত্তর: হ্যাঁ! TypeScript ব্যবহার করে আমরা development time এই এই সব errors ধরতে পারি।
 // TypeScript compiler আমাদের code লেখার সময়ই বলে দেয় কোথায় সমস্যা আছে, যাতে production এ গিয়ে users এই errors না দেখে।
 
-// JavaScript + Types = TypeScript
-// Microsoft এর তৈরি
-// JavaScript এর superset
-// Development time এ error catch করে
-// Production এ JavaScript compile হয়
+// Data Types সেকশন:
+
+// Primitive Types: string, number, boolean, null, undefined, symbol, bigint
+// Non-Primitive Types: object, array, function
+// Special Types: any, unknown, void, never
 
 // Basic syntax
 const variableName: type = value;
